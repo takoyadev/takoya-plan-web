@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatCheckbox} from "@angular/material/checkbox";
+import {Option} from "../option";
 
 @Component({
   selector: 'app-plan-detail',
@@ -7,14 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  checked = false;
-  indeterminate = false;
-  labelPosition: 'before' | 'after' = 'after';
-  disabled = false;
+  options: Option[] = [
+    {label: "Vendredi 25 Mars 2022", selected: false, optional: false},
+    {label: "Samedi 26 Mars 2022", selected: false, optional: false},
+    {label: "Dimanche 27 Mars 2022", selected: false, optional: false}
+  ];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(index: number): void {
+    let option: Option = this.options[index];
+    if(option.selected) {
+      option.selected = false;
+      option.optional = true;
+    } else if (option.optional) {
+      option.optional = false;
+    } else {
+      option.selected = true;
+    }
   }
 
 }
