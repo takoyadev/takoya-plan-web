@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PlanModule} from "./plan/plan.module";
+import {NavModule} from "./plan/nav/nav.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {PlanModule} from "./plan/plan.module";
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        PlanModule
+        PlanModule,
+        NavModule
     ],
   providers: [],
   bootstrap: [AppComponent]
