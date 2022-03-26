@@ -1,2 +1,7 @@
 <app-nav-toolbar></app-nav-toolbar>
-<app-plan-detail></app-plan-detail>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+  </mat-drawer>
+  <app-plan-detail></app-plan-detail>
+</mat-drawer-container>

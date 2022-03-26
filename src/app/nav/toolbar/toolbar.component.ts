@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-nav-toolbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
+  // FIXME check why drawer is undefined
+  @Input('drawer') drawer: MatDrawer | undefined;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  showMenu() {
+    console.log(this.drawer);
+    this.drawer?.open().then();
+  }
 }
