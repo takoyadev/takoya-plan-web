@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ValidateComponent } from './validate/validate.component';
-import { CancelComponent } from './cancel/cancel.component';
+import { UnimplementedComponent } from './unimplemented/unimplemented.component';
+import {SuccessComponent} from "./success/success.component";
 
 
 
 @NgModule({
   declarations: [
-    ValidateComponent,
-    CancelComponent
+    UnimplementedComponent,
+    SuccessComponent
   ],
   imports: [
     CommonModule

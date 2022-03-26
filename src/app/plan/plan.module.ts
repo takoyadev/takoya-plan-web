@@ -9,12 +9,19 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { FlatOptionsPickerComponent } from './flat-options-picker/flat-options-picker.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { GuestFormComponent } from './guest-form/guest-form.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
 @NgModule({
     declarations: [
         DetailComponent,
+        FlatOptionsPickerComponent,
+        GuestFormComponent,
     ],
     exports: [
         DetailComponent
@@ -27,7 +34,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatRadioModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
+    MatExpansionModule,
+    MatIconModule
   ]
 })
 export class PlanModule { }

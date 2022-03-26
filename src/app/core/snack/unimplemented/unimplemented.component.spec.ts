@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValidateComponent } from './validate.component';
+import { UnimplementedComponent } from './unimplemented.component';
 
-describe('ValidateComponent', () => {
-  let component: ValidateComponent;
-  let fixture: ComponentFixture<ValidateComponent>;
+describe('UnimplementedComponent', () => {
+  let component: UnimplementedComponent;
+  let fixture: ComponentFixture<UnimplementedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ValidateComponent ]
+      declarations: [ UnimplementedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ValidateComponent);
+    fixture = TestBed.createComponent(UnimplementedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

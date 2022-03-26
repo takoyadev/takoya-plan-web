@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProgressSpinnerDialogComponent } from './progress-spinner-dialog/progress-spinner-dialog.component';
+import { ProgressSpinnerDialogComponent } from './dialog/progress-spinner-dialog/progress-spinner-dialog.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
