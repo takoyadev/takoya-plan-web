@@ -8,10 +8,17 @@ import {Option} from "../option";
 })
 export class DetailComponent implements OnInit {
 
+  all: boolean = false;
+  some: boolean = false;
+
   options: Option[] = [
     {label: "Vendredi 25 Mars 2022", selected: false, optional: false},
     {label: "Samedi 26 Mars 2022", selected: false, optional: false},
-    {label: "Dimanche 27 Mars 2022", selected: false, optional: false}
+    {label: "Dimanche 27 Mars 2022", selected: false, optional: false},
+    {label: "Lundi 28 Mars 2022", selected: false, optional: false},
+    {label: "Mardi 29 Mars 2022", selected: false, optional: false},
+    {label: "Mercredi 30 Mars 2022", selected: false, optional: false},
+    {label: "Jeudi 31 Mars 2022", selected: false, optional: false},
   ];
 
   constructor() { }
@@ -29,6 +36,16 @@ export class DetailComponent implements OnInit {
     } else {
       option.selected = true;
     }
+    this.all = false;
+    this.some = true;
   }
 
+  setAll() {
+    this.all = !(this.all||this.some);
+    this.some = false;
+    this.options.forEach(option => {
+      option.optional = false;
+      option.selected = this.all;
+    });
+  }
 }

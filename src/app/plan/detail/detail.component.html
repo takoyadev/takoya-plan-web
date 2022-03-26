@@ -1,20 +1,29 @@
 <mat-card>
   <mat-card-content>
     <h2 class="example-h2">Choix de la date</h2>
-    <ul>
-      <ng-template ngFor let-option [ngForOf]="options" let-index="index">
-        <section class="example-section">
-          <mat-checkbox
-            class="example-margin"
-            (click)="onClick(index)"
-            [(ngModel)]="option.selected"
-            [(indeterminate)]="option.optional"
-            [disabled]="true"
-          >
-            {{option?.label}}
-          </mat-checkbox>
-        </section>
-      </ng-template>
-    </ul>
+    <section class="example-section">
+      <mat-checkbox
+        class="example-margin"
+        (click)="setAll()"
+        [(ngModel)]="all"
+        [(indeterminate)]="some"
+        [disabled]="true"
+      >
+        Tous
+      </mat-checkbox>
+    </section>
+    <ng-template ngFor let-option [ngForOf]="options" let-index="index">
+      <section class="example-section">
+        <mat-checkbox
+          class="example-margin"
+          (click)="onClick(index)"
+          [(ngModel)]="option.selected"
+          [(indeterminate)]="option.optional"
+          [disabled]="true"
+        >
+          {{option?.label}}
+        </mat-checkbox>
+      </section>
+    </ng-template>
   </mat-card-content>
 </mat-card>
