@@ -4,7 +4,7 @@
     <section class="example-section">
       <mat-checkbox
         class="example-margin"
-        (click)="setAll()"
+        (click)="switchAll()"
         [(ngModel)]="all"
         [(indeterminate)]="some"
         [disabled]="true"
@@ -26,4 +26,8 @@
       </section>
     </ng-template>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="validate()">Valider</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Annuler</button>
+  </mat-card-actions>
 </mat-card>

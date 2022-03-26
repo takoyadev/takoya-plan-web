@@ -5,6 +5,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
+import {MatButtonModule} from "@angular/material/button";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 
@@ -20,7 +22,9 @@ import {MatRadioModule} from "@angular/material/radio";
     MatCheckboxModule,
     MatCardModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonModule,
+    MatSnackBarModule
   ]
 })
 export class PlanModule { }
