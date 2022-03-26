@@ -3,6 +3,8 @@ import {Option} from "../option";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ValidateComponent} from "../../snack/validate/validate.component";
 import {CancelComponent} from "../../snack/cancel/cancel.component";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ProgressSpinnerDialogComponent} from "../../core/progress-spinner-dialog/progress-spinner-dialog.component";
 
 @Component({
   selector: 'app-plan-detail',
@@ -15,16 +17,21 @@ export class DetailComponent implements OnInit {
   some: boolean | undefined = false;
 
   options: Option[] = [
-    {label: "Vendredi 25 Mars 2022", selected: false, optional: false},
-    {label: "Samedi 26 Mars 2022", selected: false, optional: false},
-    {label: "Dimanche 27 Mars 2022", selected: false, optional: false},
-    {label: "Lundi 28 Mars 2022", selected: false, optional: false},
-    {label: "Mardi 29 Mars 2022", selected: false, optional: false},
-    {label: "Mercredi 30 Mars 2022", selected: false, optional: false},
-    {label: "Jeudi 31 Mars 2022", selected: false, optional: false},
+    {date: new Date("2022-03-26T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-03-27T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-03-28T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-03-29T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-03-30T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-03-31T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-04-01T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-04-02T00:00:00.000Z"), selected: false, optional: false},
+    {date: new Date("2022-04-03T00:00:00.000Z"), selected: false, optional: false},
   ];
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(
+    private _snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
   }
@@ -86,6 +93,18 @@ export class DetailComponent implements OnInit {
   }
 
   validate() {
+    let dialogRef: MatDialogRef<ProgressSpinnerDialogComponent> = this.dialog.open(ProgressSpinnerDialogComponent, {
+      panelClass: 'transparent',
+      disableClose: true
+    });
+    setTimeout( // simule un appel à l'API
+      () => this.onValidateSuccess(dialogRef),
+      1000
+    );
+  }
+
+  private onValidateSuccess(dialogRef: MatDialogRef<ProgressSpinnerDialogComponent>) {
+    dialogRef.close()
     this._snackBar.openFromComponent(ValidateComponent, {
       duration: 1500,
     });

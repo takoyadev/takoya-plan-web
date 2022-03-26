@@ -7,6 +7,8 @@ import {FormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 
@@ -24,7 +26,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     FormsModule,
     MatRadioModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ]
 })
 export class PlanModule { }

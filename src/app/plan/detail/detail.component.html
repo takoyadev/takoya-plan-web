@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <h2 class="example-h2">Choix de la date</h2>
+    <h2 class="example-h2">Date selection</h2>
     <section class="example-section">
       <mat-checkbox
         class="example-margin"
@@ -9,7 +9,7 @@
         [(indeterminate)]="some"
         [disabled]="true"
       >
-        Tous
+        All
       </mat-checkbox>
     </section>
     <ng-template ngFor let-option [ngForOf]="options" let-index="index">
@@ -21,13 +21,13 @@
           [(indeterminate)]="option.optional"
           [disabled]="true"
         >
-          {{option?.label}}
+          {{option?.date|date:"fullDate"}}
         </mat-checkbox>
       </section>
     </ng-template>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="validate()">Valider</button>
-    <button mat-raised-button color="warn" (click)="cancel()">Annuler</button>
+    <button mat-raised-button color="primary" (click)="validate()">Validate</button>
+    <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
   </mat-card-actions>
 </mat-card>

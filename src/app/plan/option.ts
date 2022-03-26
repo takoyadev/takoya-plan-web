@@ -1,6 +1,6 @@
 export class Option {
 
-  label: String | undefined;
+  date: Date | undefined;
   selected: boolean | undefined;
   optional: boolean | undefined;
 
