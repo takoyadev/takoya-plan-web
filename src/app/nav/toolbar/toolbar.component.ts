@@ -8,7 +8,6 @@ import {MatDrawer} from "@angular/material/sidenav";
 })
 export class ToolbarComponent implements OnInit {
 
-  // FIXME check why drawer is undefined
   @Input('drawer') drawer: MatDrawer | undefined;
 
   constructor() { }
@@ -18,6 +17,6 @@ export class ToolbarComponent implements OnInit {
 
   showMenu() {
     console.log(this.drawer);
-    this.drawer?.open().then();
+    this.drawer?.toggle();
   }
 }
