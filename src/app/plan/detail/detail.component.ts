@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatCheckbox} from "@angular/material/checkbox";
 import {Option} from "../option";
 
 @Component({
