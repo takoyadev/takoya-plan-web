@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatListModule} from "@angular/material/list";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -19,13 +20,14 @@ import {MatListModule} from "@angular/material/list";
     ToolbarComponent,
     SidebarComponent
   ],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatListModule
-  ]
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatListModule,
+        RouterModule
+    ]
 })
 export class NavModule { }

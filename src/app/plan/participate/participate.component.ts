@@ -8,42 +8,39 @@ import {SuccessComponent} from "../../core/snack/success/success.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {UnimplementedComponent} from "../../core/snack/unimplemented/unimplemented.component";
 import {MatAccordion} from "@angular/material/expansion";
+import {EventService} from "../../data/event/event.service";
+import {Observable} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-plan-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  selector: 'app-plan-participate',
+  templateUrl: './participate.component.html',
+  styleUrls: ['./participate.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class ParticipateComponent implements OnInit {
 
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
 
-  event: Event = {
-    label: "My first event ever",
-    author: "Chinjto",
-    options: [
-      {date: new Date("2022-03-26T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-03-27T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-03-28T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-03-29T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-03-30T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-03-31T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-04-01T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-04-02T00:00:00.000Z"), selected: false, optional: false},
-      {date: new Date("2022-04-03T00:00:00.000Z"), selected: false, optional: false},
-    ]
-  };
+  eventObs: Observable<Event> | undefined;
+  id: number = -1;
 
   constructor(
     private _snackBar: MatSnackBar,
-    private dialog: MatDialog
-  ) { }
+    private _dialog: MatDialog,
+    private _eventService: EventService,
+    private _route: ActivatedRoute
+  ) {
+    this._route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+  }
 
   ngOnInit(): void {
+    this.getEvent();
   }
 
   validate() {
-    let dialogRef: MatDialogRef<ProgressSpinnerDialogComponent> = this.dialog.open(ProgressSpinnerDialogComponent, {
+    let dialogRef: MatDialogRef<ProgressSpinnerDialogComponent> = this._dialog.open(ProgressSpinnerDialogComponent, {
       panelClass: 'transparent',
       disableClose: true
     });
@@ -65,6 +62,11 @@ export class DetailComponent implements OnInit {
       duration: 1500,
     });
     // TODO call picker.cleanAll()
+  }
+
+  getEvent() {
+    console.log(this.id);
+    this.eventObs = this._eventService.getEvent(this.id);
   }
 
 }

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="eventObs | async as event; else loading">
   <mat-card-title>{{event?.label}}</mat-card-title>
   <mat-card-subtitle>host: {{event?.author}}</mat-card-subtitle>
   <mat-card-content>
@@ -7,7 +7,7 @@
       <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
     </div>
     <mat-accordion class="example-headers-align" multi>
-      <mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon>account_circle</mat-icon> You
@@ -18,7 +18,7 @@
         </mat-expansion-panel-header>
         <app-guest-form></app-guest-form>
       </mat-expansion-panel>
-      <mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon>date_range</mat-icon> Options
@@ -36,3 +36,6 @@
     <button mat-raised-button color="warn" (click)="cancel()" matTooltip="Not Yet Implemented">Cancel</button>
   </mat-card-actions>
 </mat-card>
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

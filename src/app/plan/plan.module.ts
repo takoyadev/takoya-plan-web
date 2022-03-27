@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DetailComponent} from './detail/detail.component';
+import {ParticipateComponent} from './participate/participate.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatCardModule} from "@angular/material/card";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -22,12 +22,12 @@ import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
     declarations: [
-        DetailComponent,
+        ParticipateComponent,
         OptionsFormComponent,
         GuestFormComponent,
     ],
   exports: [
-    DetailComponent
+    ParticipateComponent
   ],
   imports: [
     CommonModule,

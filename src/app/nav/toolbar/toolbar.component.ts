@@ -16,7 +16,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   showMenu() {
-    console.log(this.drawer);
     this.drawer?.toggle();
   }
 }
