@@ -1,0 +1,45 @@
+<mat-card *ngIf="eventObs | async as event; else loading">
+  <mat-card-title>{{event?.label}}</mat-card-title>
+  <mat-card-subtitle>
+    description: {{event?.description}}
+    <br>
+    host by: {{event?.author?.firstName}} {{event?.author?.lastName}} (<a href="mailto:{{event?.author?.email}}">{{event?.author?.email}}</a>)
+  </mat-card-subtitle>
+  <mat-card-content>
+    <div class="example-action-buttons">
+      <button mat-button (click)="accordion?.openAll()">Expand All</button>
+      <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
+    </div>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>account_circle</mat-icon> You
+          </mat-panel-title>
+          <mat-panel-description>
+            Type your name and your email
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <tak-plan-form-profil></tak-plan-form-profil>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>date_range</mat-icon> Options
+          </mat-panel-title>
+          <mat-panel-description>
+            Inform the options you wish to participate at this event
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <tak-plan-form-options [event]="event"></tak-plan-form-options>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="validate()">Participate</button>
+    <button mat-raised-button color="warn" (click)="cancel()" matTooltip="Not Yet Implemented">Cancel</button>
+  </mat-card-actions>
+</mat-card>
+<ng-template #loading>
+  <div>Loading...</div>
+</ng-template>

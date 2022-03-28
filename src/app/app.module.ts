@@ -1,46 +1,48 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {PlanModule} from "./plan/plan.module";
-import {NavModule} from "./nav/nav.module";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { HomeComponent } from './home/home.component';
+import {TakPlanPageHomeComponent} from './page/home/tak-plan-page-home.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule, Routes} from "@angular/router";
-import {ParticipateComponent} from "./plan/participate/participate.component";
+import {TakPlanPageParticipateComponent} from "./page/participate/tak-plan-page-participate.component";
+import {TakPlanPageCreateComponent} from "./page/create/tak-plan-page-create.component";
+import {TakPlanPageModule} from "./page/tak-plan-page.module";
+import {TakPlanNavModule} from "./nav/tak-plan-nav.module";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'new', component: ParticipateComponent },
-  { path: 'participate/:id', component: ParticipateComponent },
-  { path: '**', component: HomeComponent }
+  { path: 'home', component: TakPlanPageHomeComponent },
+  { path: 'create', component: TakPlanPageCreateComponent },
+  { path: 'participate/:id', component: TakPlanPageParticipateComponent },
+  { path: '**', component: TakPlanPageHomeComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    PlanModule,
-    NavModule,
+    TakPlanPageModule,
+    TakPlanNavModule,
     MatSidenavModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }

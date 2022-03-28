@@ -1,0 +1,19 @@
+<h2 class="example-h2">
+  Select your options
+</h2>
+<mat-tab-group headerPosition="below" animationDuration="0ms">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">list</mat-icon>
+      List view
+    </ng-template>
+    <tak-plan-picker-options-flat [event]="event"></tak-plan-picker-options-flat>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">calendar_month</mat-icon>
+      Calendar view
+    </ng-template>
+    <tak-plan-picker-options-calendar [event]="event"></tak-plan-picker-options-calendar>
+  </mat-tab>
+</mat-tab-group>
